@@ -1,110 +1,112 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
+<html lang="en"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAI MI IOTU - 인조 속눈썹 전문 기업</title>
-    <meta name="description" content="MAI MI IOTU는 주문자 상표 위탁 생산(OEM) 및 자체 브랜드 인조 속눈썹을 전문으로 생산하는 공장입니다.">
-    <meta name="keywords" content="MAI MI IOTU, 인조 속눈썹, 속눈썹 공장, OEM, 베트남 속눈썹">
+    <title data-lang="site_title">MAI MI IOTU - Artificial Eyelash Specialist</title> <meta name="description" content="MAI MI IOTU specializes in OEM and own brand artificial eyelashes.">
+    <meta name="keywords" content="MAI MI IOTU, artificial eyelashes, eyelash factory, OEM, Vietnam eyelashes">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> </head>
 <body>
 
     <nav id="navbar">
-        <ul>
-            <li><a href="#home">홈</a></li>
-            <li><a href="#business">주요 사업</a></li>
-            <li><a href="#products">주요 제품</a></li>
-            <li><a href="#location">공장 위치</a></li>
-            <li><a href="#contact">연락처</a></li>
-        </ul>
+        <div class="nav-container">
+            <a href="#home" class="logo">MAI MI IOTU</a> <div class="nav-buttons">
+                <div class="lang-menu">
+                    <button id="lang-toggle-btn" data-lang="nav_language">Language</button>
+                    <div id="lang-switcher" class="hidden"> <button data-lang-set="ko">KR</button>
+                        <button data-lang-set="vi">VN</button>
+                        <button data-lang-set="en">EN</button>
+                        <button data-lang-set="ja">JP</button>
+                    </div>
+                </div>
+                <a href="#contact" id="contact-btn" class="nav-button" data-lang="nav_contact">Contact</a>
+            </div>
+        </div>
     </nav>
 
     <section id="home" class="fullscreen">
         <div class="overlay"></div>
         <div class="content">
-            <h1>MAI MI IOTU</h1>
+            <h1 data-lang="home_title">MAI MI IOTU</h1>
         </div>
     </section>
 
-    <section id="business" class="section">
-        <div class="container">
-            <h2>주요 사업</h2>
+    <section id="business" class="section fade-in-section"> <div class="container">
+            <h2 data-lang="business_title">Main Business</h2>
             <div class="business-content">
                 <div class="business-item">
-                    <h3>주문자 상표 위탁 생산 (OEM)</h3>
-                    <p>MAI MI IOTU는 고객사의 브랜드로 고품질 인조 속눈썹을 생산하는 데 특화되어 있습니다. 다년간의 경험과 최신 설비를 바탕으로 고객의 요구사항에 맞는 최적의 제품을 제공합니다.</p>
+                    <h3 data-lang="oem_title">Original Equipment Manufacturing (OEM)</h3>
+                    <p data-lang="oem_desc">MAI MI IOTU specializes in producing high-quality artificial eyelashes under our clients' brands. With years of experience and modern facilities, we provide optimal products meeting customer requirements.</p>
                 </div>
                 <div class="business-item">
-                    <h3>자체 브랜드 인조 속눈썹</h3>
-                    <p>MAI MI IOTU는 자체 브랜드의 인조 속눈썹 제품도 개발 및 생산하고 있습니다. 최신 트렌드를 반영한 혁신적인 디자인과 우수한 품질로 시장을 선도합니다.</p>
+                    <h3 data-lang="brand_title">Own Brand Eyelashes</h3>
+                    <p data-lang="brand_desc">MAI MI IOTU also develops and produces its own brand of artificial eyelash products. We lead the market with innovative designs and excellent quality reflecting the latest trends.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="products" class="section bg-light">
-        <div class="container">
-            <h2>주요 제품</h2>
-            <p>다양한 종류와 스타일의 인조 속눈썹을 만나보세요.</p>
+    <section id="products" class="section bg-light fade-in-section"> <div class="container">
+            <h2 data-lang="products_title">Main Products</h2>
+            <p data-lang="products_desc">Discover various types and styles of artificial eyelashes.</p>
             <div class="product-gallery">
                 <div class="product-item">
-                    <img src="images/product1.jpg" alt="제품 1">
-                    <h4>클래식 래쉬</h4>
-                    <p>자연스럽고 선명한 눈매 연출</p>
+                    <img src="images/product1.jpg" alt="Product 1">
+                    <h4 data-lang="product1_title">Classic Lash</h4>
+                    <p data-lang="product1_desc">For a natural and defined look</p>
                 </div>
                 <div class="product-item">
-                    <img src="images/product2.jpg" alt="제품 2">
-                    <h4>볼륨 래쉬</h4>
-                    <p>풍성하고 화려한 눈매 연출</p>
+                    <img src="images/product2.jpg" alt="Product 2">
+                    <h4 data-lang="product2_title">Volume Lash</h4>
+                    <p data-lang="product2_desc">For a full and glamorous look</p>
                 </div>
                 <div class="product-item">
-                    <img src="images/product3.jpg" alt="제품 3">
-                    <h4>특수 래쉬</h4>
-                    <p>독특하고 개성 있는 디자인</p>
+                    <img src="images/product3.jpg" alt="Product 3">
+                    <h4 data-lang="product3_title">Special Lash</h4>
+                    <p data-lang="product3_desc">Unique and individual designs</p>
                 </div>
                  <div class="product-item">
-                    <img src="images/product4.jpg" alt="제품 4">
-                    <h4>컬러 래쉬</h4>
-                    <p>다양한 컬러로 특별한 포인트</p>
+                    <img src="images/product4.jpg" alt="Product 4">
+                    <h4 data-lang="product4_title">Color Lash</h4>
+                    <p data-lang="product4_desc">Special highlights with various colors</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="location" class="section">
-        <div class="container">
-            <h2>공장 위치</h2>
-            <p>MAI MI IOTU는 베트남 빈증에 위치하고 있습니다.</p>
+    <section id="location" class="section fade-in-section"> <div class="container">
+            <h2 data-lang="location_title">Factory Location</h2>
+            <p data-lang="location_desc">MAI MI IOTU is located in Binh Duong, Vietnam.</p>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.965313988517!2d106.64333831526365!3d10.887198992245369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d7e9749117d3%3A0x6b8f108f5d0b9f0d!2s573%20Ho%20Van%20Cong%2C%20T%C6%B0%E1%BB%A3ng%20B%C3%ACnh%20Hi%E1%BB%87p%2C%20Th%E1%BB%A7%20D%E1%BA%A7u%20M%E1%BB%99t%2C%20B%C3%ACnh%20D%C6%B0%C6%A1ng%2C%20Vietnam!5e0!3m2!1sen!2skr!4v1678886432109!5m2!1sen!2skr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://maps.google.com/maps?q=573%20Ho%20Van%20Cong%2CTuong%20Binh%20Hiep%2CThu%20Dau%20Mot%2CBinh%20Duong%2CVietnam&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <p><strong>주소:</strong> 573 Ho Van Cong, Zone 8, Tuong Binh Hiep, Thu Dau Mot City, Binh Duong</p>
+            <p><strong data-lang="address_label">Address:</strong> 573 Ho Van Cong, Zone 8, Tuong Binh Hiep, Thu Dau Mot City, Binh Duong</p>
         </div>
     </section>
 
-    <section id="contact" class="section bg-light">
-        <div class="container">
-            <h2>연락처</h2>
-            <p>궁금한 점이 있으시면 언제든지 문의해 주세요.</p>
+    <section id="contact" class="section bg-light fade-in-section"> <div class="container">
+            <h2 data-lang="contact_title">Contact</h2>
+            <p data-lang="contact_desc">Please feel free to contact us if you have any questions.</p>
             <div class="contact-info">
-                <p><strong>대표:</strong> 윤석훈</p>
-                <p><strong>연락처:</strong> (+84) 086 200 8886</p>
-                <p><strong>이메일:</strong> <a href="mailto:younsh57@naver.com">younsh57@naver.com</a></p>
-                <p><strong>주소:</strong> 573 Ho Van Cong, Zone 8, Tuong Binh Hiep, Thu Dau Mot City, Binh Duong</p>
+                <p><strong data-lang="rep_label">Representative:</strong> 윤석훈</p>
+                <p><strong data-lang="phone_label">Contact:</strong> (+84) 086 200 8886</p>
+                <p><strong data-lang="email_label">Email:</strong> <a href="mailto:younsh57@naver.com">younsh57@naver.com</a></p>
+                <p><strong data-lang="address_label">Address:</strong> 573 Ho Van Cong, Zone 8, Tuong Binh Hiep, Thu Dau Mot City, Binh Duong</p>
             </div>
         </div>
     </section>
+
+    <a href="#home" id="to-top-btn" class="hidden">↑</a>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 MAI MI IOTU. All Rights Reserved.</p>
+            <p data-lang="footer_text">© 2025 MAI MI IOTU. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <script src="js/languages.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
