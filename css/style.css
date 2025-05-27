@@ -1,11 +1,10 @@
 /* 기본 스타일 & Google Fonts */
 body {
-    /* Noto Sans KR (한국어 등) / Poppins (영어 등) */
-    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
     line-height: 1.6;
     color: #333;
-    background-color: #fff;
+    scroll-behavior: smooth; /* 부드러운 스크롤 기본 적용 */
 }
 
 h1, h2, h3, h4 {
@@ -19,158 +18,106 @@ h1, h2, h3, h4 {
 }
 
 .section {
-    padding: 100px 0; /* 패딩 증가 */
+    padding: 80px 0;
     text-align: center;
-    overflow: hidden; /* 애니메이션 요소가 넘치지 않도록 */
 }
 
 .section h2 {
-    font-size: 2.8rem; /* 크기 조정 */
-    margin-bottom: 50px; /* 간격 조정 */
+    font-size: 2.5rem;
+    margin-bottom: 40px;
     position: relative;
     display: inline-block;
-    color: #222;
 }
 
+/* 밑줄 효과 */
 .section h2::after {
     content: '';
     position: absolute;
-    width: 70px; /* 길이 조정 */
-    height: 4px; /* 두께 조정 */
-    background: #6a6a6a; /* 주요 색상 조정 */
-    bottom: -15px; /* 위치 조정 */
+    width: 60px;
+    height: 3px;
+    background: #555; /* 주요 색상 */
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 2px;
 }
 
 .bg-light {
-    background-color: #f8f8f8; /* 약간 더 밝게 */
+    background-color: #f4f4f4;
 }
 
 a {
-    color: #555;
+    color: #555; /* 주요 색상 */
     text-decoration: none;
 }
 
-/* --- 수정된 네비게이션 바 --- */
+/* 네비게이션 바 */
 #navbar {
-    position: fixed;
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 메뉴 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    position: fixed; /* 고정 */
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.8); /* 밝은 배경, 약간의 투명도 */
-    backdrop-filter: blur(10px); /* 블러 효과 */
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 0;
     z-index: 1000;
-    transition: top 0.3s ease;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: background 0.3s ease, padding 0.3s ease;
 }
 
-#navbar .nav-container {
-    max-width: 1200px; /* 너비 조정 */
-    margin: 0 auto;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between; /* 로고와 버튼 양쪽 정렬 */
-    align-items: center;
+#navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-#navbar .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #333;
-    letter-spacing: 1px;
+#navbar ul li {
+    display: inline;
+    margin: 0 20px;
 }
 
-#navbar .nav-buttons {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* 버튼 간격 */
-}
-
-#navbar .nav-button,
-#navbar #lang-toggle-btn {
-    color: #333;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 8px 18px;
-    border-radius: 20px;
-    transition: background 0.3s ease, color 0.3s ease;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-#navbar .nav-button:hover,
-#navbar #lang-toggle-btn:hover {
-    background-color: #eee;
-}
-
-#navbar .nav-button { /* 연락처 버튼 특별 스타일 */
-    background-color: #333;
+#navbar ul li a {
     color: #fff;
-}
-#navbar .nav-button:hover {
-     background-color: #555;
-     color: #fff;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
-
-/* --- 언어 메뉴 --- */
-.lang-menu {
-    position: relative;
+#navbar ul li a:hover {
+    color: #aaa; /* 호버 색상 */
 }
 
+/* 언어 전환기 스타일 */
 #lang-switcher {
     position: absolute;
-    top: 110%; /* 버튼 바로 아래 */
-    right: 0;
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    z-index: 1001;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-#lang-switcher.hidden {
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none; /* 숨겨졌을 때 클릭 안되게 */
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
 }
 
 #lang-switcher button {
     background: none;
-    border: none;
-    color: #333;
-    padding: 8px 15px;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    margin-left: 5px;
     cursor: pointer;
-    border-radius: 5px;
-    text-align: left;
-    width: 100%;
-    font-size: 0.95rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-#lang-switcher button:hover {
-    background-color: #f4f4f4;
-}
-
-#lang-switcher button.active {
-    background-color: #eee;
+#lang-switcher button:hover,
+#lang-switcher button.active { /* 활성화된 버튼 스타일 */
+    background: #fff;
+    color: #333;
     font-weight: bold;
 }
 
-/* --- 홈 섹션 (풀 스크린) --- */
+
+/* 1. 홈 섹션 (풀 스크린) */
 .fullscreen {
     height: 100vh;
+    /* 배경 이미지 경로: images 폴더에 factory.jpg 파일을 넣어주세요. */
     background: url('../images/factory.jpg') no-repeat center center/cover;
     position: relative;
     display: flex;
@@ -186,138 +133,165 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.55); /* 약간 조정 */
+    background-color: rgba(0, 0, 0, 0.6); /* 어둡게 처리 */
+    z-index: 1;
 }
 
-.fullscreen .content { z-index: 2; }
+.fullscreen .content {
+    z-index: 2;
+}
 
 .fullscreen h1 {
-    font-size: 4.5rem; /* 크기 조정 */
-    font-weight: 600; /* 굵기 조정 */
-    letter-spacing: 2px;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    font-size: 4rem;
+    margin: 0;
+    font-weight: 300;
+    letter-spacing: 5px;
 }
 
-/* --- 스크롤 애니메이션 --- */
-.fade-in-section {
-    opacity: 0;
-    transform: translateY(50px); /* 아래에서 위로 */
-    transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1), transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-.fade-in-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- 다른 섹션들 (기존 스타일 유지 및 약간 조정) --- */
+/* 2. 주요 사업 섹션 */
 #business .business-content {
     display: flex;
     justify-content: space-around;
     text-align: left;
-    gap: 40px;
-    margin-top: 40px;
+    gap: 30px; /* 아이템 간 간격 */
+    margin-top: 30px;
 }
+
 #business .business-item {
     flex: 1;
     background: #fff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
-#business .business-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
-}
-#business .business-item h3 { font-size: 1.6rem; margin-bottom: 20px; }
 
+#business .business-item:hover {
+    transform: translateY(-5px);
+}
+
+#business .business-item h3 {
+    margin-top: 0;
+    color: #555; /* 주요 색상 */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* 3. 주요 제품 섹션 */
 #products .product-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 35px;
-    margin-top: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 반응형 그리드 */
+    gap: 30px;
+    margin-top: 40px;
 }
+
 #products .product-item {
     background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-#products .product-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-#products .product-item img { height: 220px; }
-#products .product-item h4 { font-size: 1.3rem; }
-#products .product-item p { min-height: 45px; }
-
-#location .map-container {
-    margin-top: 40px;
-    border-radius: 12px;
-}
-
-#contact .contact-info {
-    font-size: 1.15rem;
-    line-height: 2.3;
-    margin-top: 40px;
-}
-#contact .contact-info strong { width: 120px; } /* 라벨 너비 조정 */
-
-/* --- 푸터 --- */
-footer {
-    background: #282828; /* 어둡게 */
-    color: #a0a0a0; /* 회색 톤 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
     text-align: center;
-    padding: 25px 0;
+}
+
+#products .product-item:hover {
+     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#products .product-item img {
+    width: 100%;
+    height: 200px; /* 이미지 높이 통일 */
+    object-fit: cover; /* 비율 유지하며 채우기 */
+    display: block;
+    /* 이미지가 없으면 배경색 표시 (선택 사항) */
+    background-color: #eee;
+}
+
+#products .product-item h4 {
+    margin: 15px 0 5px 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+#products .product-item p {
+    padding: 0 15px 15px 15px;
+    font-size: 0.9rem;
+    color: #666;
+    min-height: 40px; /* 설명 텍스트 높이 어느정도 유지 */
+}
+
+/* 4. 공장 위치 섹션 */
+#location .map-container {
+    margin-top: 30px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* 지도 모서리 둥글게 */
+    margin-bottom: 20px;
+    background-color: #eee; /* 지도 로딩 전 배경 */
+}
+
+#location p {
+    font-size: 1.1rem;
+}
+
+/* 5. 연락처 섹션 */
+#contact .contact-info {
+    font-size: 1.1rem;
+    line-height: 2.2; /* 간격 조정 */
+    margin-top: 30px;
+    display: inline-block; /* 가운데 정렬을 위해 */
+    text-align: left; /* 텍스트는 왼쪽 정렬 */
+}
+
+#contact .contact-info strong {
+    display: inline-block;
+    width: 80px; /* 라벨 너비 고정 */
+    font-weight: 700;
+}
+
+#contact .contact-info a {
+    transition: color 0.3s ease;
+}
+#contact .contact-info a:hover {
+    color: #333;
+    font-weight: bold;
+}
+
+/* 푸터 */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
     font-size: 0.9rem;
 }
 
-/* --- 맨 위로 가기 버튼 --- */
-#to-top-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 45px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 999;
-    opacity: 0;
-    transform: translateY(20px);
-}
-#to-top-btn.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-#to-top-btn.hidden {
-    opacity: 0;
-    transform: translateY(20px);
-    pointer-events: none;
-}
-#to-top-btn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-
-/* --- 반응형 디자인 --- */
+/* 반응형 디자인 */
 @media(max-width: 768px) {
-    .section { padding: 60px 0; }
-    .section h2 { font-size: 2.2rem; }
-    .fullscreen h1 { font-size: 3rem; }
-    #business .business-content { flex-direction: column; }
-
-    #navbar .nav-container { padding: 10px 15px; }
-    #navbar .logo { font-size: 1.3rem; }
-    #navbar .nav-button,
-    #navbar #lang-toggle-btn { padding: 6px 12px; font-size: 0.9rem; }
-    #lang-switcher { right: 0; /* 위치 조정 */ }
+    .fullscreen h1 {
+        font-size: 2.8rem;
+    }
+    .section h2 {
+        font-size: 2rem;
+    }
+    #business .business-content {
+        flex-direction: column;
+    }
+     #navbar {
+        flex-direction: column; /* 작은 화면에서는 세로로 쌓기 */
+        padding: 10px 0; /* 패딩 재조정 */
+        background: rgba(0, 0, 0, 0.85); /* 배경 더 진하게 */
+    }
+    #navbar ul li {
+        margin: 5px 10px;
+        display: block; /* 메뉴 세로로 */
+    }
+    #lang-switcher {
+        position: relative; /* 위치 초기화 */
+        top: auto;
+        right: auto;
+        transform: none;
+        margin-top: 10px; /* 메뉴와의 간격 */
+    }
 }
