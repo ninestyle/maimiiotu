@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const langButtons = langSwitcher.querySelectorAll('button');
     const elementsToTranslate = document.querySelectorAll('[data-lang]');
     const htmlTag = document.documentElement;
-    const contactBtn = document.getElementById('contact-btn');
-    const logoLink = document.querySelector('.logo');
     const navbar = document.getElementById('navbar');
     const toTopBtn = document.getElementById('to-top-btn');
 
@@ -18,15 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error("Language data not found or language not supported:", lang);
             return;
         }
-
         currentLang = lang;
         localStorage.setItem('maimiiotu_lang', lang);
         htmlTag.lang = lang;
-
         elementsToTranslate.forEach(el => {
             const key = el.getAttribute('data-lang');
             if (languages[lang][key] !== undefined) {
-                // 아이콘은 그대로 두고 텍스트 부분만 변경 (span 태그를 사용하는 경우)
                 const textSpan = el.querySelector('span:last-child');
                 if (textSpan && el.querySelector('.material-symbols-outlined')) {
                     textSpan.innerHTML = languages[lang][key];
@@ -37,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-
         updateActiveButton();
     }
 
@@ -58,8 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    changeLanguage(currentLang); // 페이지 로드 시 언어 적용
-
+    changeLanguage(currentLang);
 
     // --- 부드러운 스크롤 ---
     function smoothScrollTo(targetId) {
@@ -67,15 +60,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (targetSection) {
             const navbarHeight = navbar.offsetHeight;
             const targetPosition = targetSection.offsetTop - navbarHeight;
-
-            window.scrollTo({
-                top: targetPosition, // 1px 더하는 것 제거
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
         }
     }
 
-    // 모든 href="#" 링크에 스크롤 적용
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -84,16 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-
-    // --- 스크롤 애니메이션 (Intersection Observer) ---
+    // --- 스크롤 애니메이션 ---
     const sections = document.querySelectorAll('.fade-in-section');
-
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1 // 10% 보이면 실행 (좀 더 빨리 나타나도록)
-    };
-
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -102,11 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, observerOptions);
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-
+    sections.forEach(section => { observer.observe(section); });
 
     // --- 스크롤 이벤트 (맨 위로 버튼) ---
     window.addEventListener('scroll', function() {
@@ -118,5 +95,35 @@ document.addEventListener('DOMContentLoaded', function() {
             toTopBtn.classList.add('hidden');
         }
     }, false);
+
+
+    // --- ✨ 홈 섹션 배경 슬라이더 추가 ✨ ---
+    const slides = document.querySelectorAll('#home .slide');
+    let currentSlideIndex = 0;
+    const slideInterval = 5000; // 이미지 전환 간격 (5000ms = 5초)
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            // 모든 슬라이드의 active 클래스 제거
+            slide.classList.remove('active');
+        });
+        // 해당 인덱스의 슬라이드에 active 클래스 추가
+        slides[index].classList.add('active');
+    }
+
+    function nextSlide() {
+        // 다음 슬라이드 인덱스 계산 (마지막이면 처음으로)
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        showSlide(currentSlideIndex);
+    }
+
+    // 슬라이드가 2개 이상일 때만 슬라이더 실행
+    if (slides.length > 1) {
+        showSlide(currentSlideIndex); // 첫 번째 슬라이드 보여주기
+        setInterval(nextSlide, slideInterval); // 일정 간격으로 nextSlide 함수 호출
+    } else if (slides.length === 1) {
+        showSlide(0); // 슬라이드가 하나면 그냥 보여주기
+    }
+    // --- 슬라이더 코드 끝 ---
 
 });
